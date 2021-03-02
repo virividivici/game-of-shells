@@ -99,7 +99,7 @@ const TheGameOfShells = ({}) => {
     <span
       className={
         `${styles.shell}  
-        ${(guess && answer ===  guess )? styles.win: '' } 
+        ${(answer ===  guess )? styles.win: '' } 
         ${(postions.length === 1 && postions[0].some(cup => cup.hasShell))? styles.show: ''}
         `}
       onAnimationEnd={shuffleCups}>
@@ -140,7 +140,7 @@ const TheGameOfShells = ({}) => {
           Play
         </button>    
         <h2>
-         {msg()}
+         {msg()} - {guess} / {answer}
         </h2>
         <div className={styles.screen}>
           {cupsDisplay}
