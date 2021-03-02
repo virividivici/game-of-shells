@@ -92,7 +92,9 @@ const TheGameOfShells = ({}) => {
     setPostions(postions.concat([newShellPositions]))
   }
 
-  
+  function isWinner() {
+    return (postions.length === 1 && postions[0].some(cup => cup.hasShell))
+  }
 
   const Shell = (index) => {
     return (
@@ -100,7 +102,7 @@ const TheGameOfShells = ({}) => {
       className={
         `${styles.shell}  
         ${(answer ===  guess )? styles.win: '' } 
-        ${(postions.length === 1 && postions[0].some(cup => cup.hasShell))? styles.show: ''}
+        ${ isWinner() ? styles.show: ''}
         `}
       onAnimationEnd={shuffleCups}>
        🐚
@@ -119,19 +121,9 @@ const TheGameOfShells = ({}) => {
       </button>
     );
   
+  
+  
 
-  const msg = () => {
-   
-    if(!guess  && !answer) {
-        return 'Play press to start'
-    } else {
-      if( guess === answer){
-        return 'You won!'
-      } else {
-        return 'Try again'
-      }
-    }
-  }  
   return (
     <>
         <button
@@ -140,7 +132,7 @@ const TheGameOfShells = ({}) => {
           Play
         </button>    
         <h2>
-         {msg()}
+        { (guess !== null )&& ((guess === answer) ? '....You won!.....' : '>>>>>Try again!<<<<<')}
         </h2>
         <div className={styles.screen}>
           {cupsDisplay}
