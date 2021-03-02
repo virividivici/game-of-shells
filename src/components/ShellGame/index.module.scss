@@ -23,20 +23,20 @@
 
 .cup {
     display: inline-block;
-    padding: 20px;
-    width: 100px;
-    margin: 10px;
+    padding: 0;
+    width: 50px;
     text-align: center;
     position: relative;
     animation-direction: alternate;
-    border-bottom: 150px solid rgb(230,230,230);
+    border-bottom: 80px solid rgb(230,230,230);
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
     height: 0;
-    transition: all 2s ease-in-out;
+    transition: transform 500ms;
+    will-change: transform;
     cursor: pointer;
     &:hover {
-        border-bottom: 150px solid rgb(200,200,230);
+        border-bottom: 80px solid rgb(200,200,230);
     }
     span {
         font-size: 3.7rem;
@@ -47,38 +47,35 @@
  
  
   .shuffle1 {
-    animation: first 2s 2;
-  //  transform: translate(450px, 0px);
+    animation: first 2s 3;
   }
   .shuffle2 {
-    animation: second 2s 2;
- //   transform: translate(150px, 0px);
+    animation: second 2s 3;
   }
   .shuffle3 {
-    animation: third 2s 2;
- //   transform: translate(-450px, 0px);
+    animation: third 2s 3;
   }
   
   @keyframes first {
-    0%   { left: 0px; top: 0px;}
-    25%  { left: 200px; top: -200px;}
-    50%  { left: 120px; top: -80px;}
-    75%  { left: -120px; top: 200px;}
+    0%   { left: 0px; top: 10px;}
+    25%  { left: 200px; top: -100px;}
+    50%  { left: -120px; top: 80px;}
+    75%  { left: 120px; top: -200px;}
     100% { left: 120px; top: 100px;}
   }
 
   @keyframes second {
     0%   {left: 150px; top: 0px;}
-    25%  { left: 200px; top: 0px;}
+    25%  { left: -200px; top: 0px;}
     50%  { left: 0px; top: 200px;}
     75%  { left: 200px; top: 200px;}
     100% { left: 0px; top: 0px;}
   }
 
   @keyframes third {
-    0%   { left: 300px; top: 0px;}
-    25%  {left: -200px; top: 20px;}
-    50%  {left: 500px; top: -200px;}
+    0%   { left: -300px; top: 0px;}
+    25%  {left: 200px; top: 20px;}
+    50%  {left: -500px; top: -200px;}
     75%  { left: 200px; top: 350px;}
-    100% {left: 250px; top: 0px;}
+    100% {left: -250px; top: 0px;}
   }

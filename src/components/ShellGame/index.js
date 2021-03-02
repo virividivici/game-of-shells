@@ -10,15 +10,44 @@ const ShellGame = ({cups}) => {
   const [ guess, setGuess ] = useState(false)
   const [ shuffle, setShuffle ] = useState(false)
   const [ positions, setPositions] = useState([
-      { x: 450, y: 100},
-      { x: -300, y: 100},
-      { x: -250, y: 100 },
+      { x: 0, y: 100},
+      { x: 80, y: 100},
+      { x: 160, y: 100 }
   ]);
  
 
-   
+  function generateNewPositions() {
+  
+    function generateNewPosition(position) {
+      position.x = Math.floor(Math.random() * (700 - 80));
+      position.y = 100
+      return position;
+    }
 
-  const animations = [ 'shuffle1' , 'shuffle2' , 'shuffle3']
+    function isShellOverlap(acc, newPos) {
+      return acc.some(({ x }) => {
+        const overlapX = (newPos.x >= x - 80) && (newPos.x <= x + 80);
+        return overlapX;
+      });
+    }
+    
+    const newPositions = positions
+      .reduce((acc, cur) => {
+        const shell = Object.assign({}, cur);
+        let newPos = generateNewPosition(shell);
+
+        while(isShellOverlap(acc, newPos)) {
+          newPos = generateNewPosition(shell);
+        }
+
+        acc.push(newPos);
+        return acc;
+      }, []);
+
+    return newPositions;
+  }
+
+  const animations = [ 'shuffle3' , 'shuffle2' , 'shuffle1']
   
   function playGame() {
     setShuffle(false)
@@ -28,13 +57,14 @@ const ShellGame = ({cups}) => {
     setInterval(() => {
         console.log('Interval triggered');
         setGuess(false)
-        setShuffle(true)
-    
-      }, 2000);
+      }, 500);
+      setShuffle(true)  
+      setPositions(generateNewPositions());
   }
 
   function reveal(i) {
     setGuess(i)
+    //setShuffle(false) 
   }
  
 
@@ -55,7 +85,7 @@ const ShellGame = ({cups}) => {
                 guess === index ?
                 <span>🦀</span>
                 :
-                <span>{cup} {positions[index].x}</span>
+                <span>?</span>
              )
             }
         </div>
@@ -65,7 +95,8 @@ const ShellGame = ({cups}) => {
   return (
     <div className={styles.container}>
      <h1>The Games of Shells</h1>
-    
+ 
+
      <button className={styles.playBtn}  onClick={playGame}>Play</button>
 
      {cupDisplay}
