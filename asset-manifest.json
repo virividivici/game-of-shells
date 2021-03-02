@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/game-of-shells/static/css/main.d8b5a79a.chunk.css",
-    "main.js": "/game-of-shells/static/js/main.883a419b.chunk.js",
-    "main.js.map": "/game-of-shells/static/js/main.883a419b.chunk.js.map",
+    "main.js": "/game-of-shells/static/js/main.6a1442ef.chunk.js",
+    "main.js.map": "/game-of-shells/static/js/main.6a1442ef.chunk.js.map",
     "runtime-main.js": "/game-of-shells/static/js/runtime-main.757ffa92.js",
     "runtime-main.js.map": "/game-of-shells/static/js/runtime-main.757ffa92.js.map",
     "static/js/2.3df643bd.chunk.js": "/game-of-shells/static/js/2.3df643bd.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.757ffa92.js",
     "static/js/2.3df643bd.chunk.js",
     "static/css/main.d8b5a79a.chunk.css",
-    "static/js/main.883a419b.chunk.js"
+    "static/js/main.6a1442ef.chunk.js"
   ]
 }
