@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/game-of-shells/static/css/main.78938ed3.chunk.css",
+    "main.js": "/game-of-shells/static/js/main.db141f08.chunk.js",
+    "main.js.map": "/game-of-shells/static/js/main.db141f08.chunk.js.map",
+    "runtime-main.js": "/game-of-shells/static/js/runtime-main.757ffa92.js",
+    "runtime-main.js.map": "/game-of-shells/static/js/runtime-main.757ffa92.js.map",
+    "static/js/2.3df643bd.chunk.js": "/game-of-shells/static/js/2.3df643bd.chunk.js",
+    "static/js/2.3df643bd.chunk.js.map": "/game-of-shells/static/js/2.3df643bd.chunk.js.map",
+    "static/js/3.c1eda626.chunk.js": "/game-of-shells/static/js/3.c1eda626.chunk.js",
+    "static/js/3.c1eda626.chunk.js.map": "/game-of-shells/static/js/3.c1eda626.chunk.js.map",
+    "index.html": "/game-of-shells/index.html",
+    "static/css/main.78938ed3.chunk.css.map": "/game-of-shells/static/css/main.78938ed3.chunk.css.map",
+    "static/js/2.3df643bd.chunk.js.LICENSE.txt": "/game-of-shells/static/js/2.3df643bd.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/game-of-shells/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.757ffa92.js",
+    "static/js/2.3df643bd.chunk.js",
+    "static/css/main.78938ed3.chunk.css",
+    "static/js/main.db141f08.chunk.js"
+  ]
+}
