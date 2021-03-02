@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import ShellsFinder from '../ShellsFinder'
 import styles from './index.module.scss'
 
-
+const delay = async (ms) => new Promise(res => setTimeout(res, ms));
+const wait = (ms) => {
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }
 
 const ShellGame = ({cups}) => {
   const [ answer, setAnswer ] = useState(Math.floor(Math.random() * cups.length))
   const [ guess, setGuess ] = useState(false)
   const [ shuffle, setShuffle ] = useState(false)
+  const [ msg, setMsg ] = useState('Press play to start')
   const [ positions, setPositions] = useState([
       { x: 0, y: 100},
       { x: 80, y: 100},
       { x: 160, y: 100 }
   ]);
- 
+  
 
   function generateNewPositions() {
   
@@ -49,22 +56,32 @@ const ShellGame = ({cups}) => {
 
   const animations = [ 'shuffle3' , 'shuffle2' , 'shuffle1']
   
-  function playGame() {
+  
+
+  const playGame = () => {
     setShuffle(false)
     let ans = Math.floor(Math.random() * cups.length)
     setAnswer(ans)
     setGuess(ans)
-    setInterval(() => {
-        console.log('Interval triggered');
-        setGuess(false)
-      }, 500);
-      setShuffle(true)  
-      setPositions(generateNewPositions());
+   // wait(1000)
+    
+    reShuffle()
+      
   }
 
-  function reveal(i) {
+  const reShuffle = () => {
+    setGuess(false)
+    setShuffle(true)  
+    setPositions(generateNewPositions());
+  }
+
+  function reveal(i) {  
     setGuess(i)
-    //setShuffle(false) 
+    if(guess === i && answer === i) {
+        setMsg('You wont!')
+    } else {
+        setMsg('Try again')
+    }
   }
  
 
@@ -79,13 +96,13 @@ const ShellGame = ({cups}) => {
             onClick={() => reveal(index)}
             >
             {(guess === index && answer === index ) ? 
-             <span> 🐚 </span>
+             <span> 🐚</span>
              :
              (
                 guess === index ?
                 <span>🦀</span>
                 :
-                <span>?</span>
+                <span>{'?'}</span>
              )
             }
         </div>
@@ -93,16 +110,12 @@ const ShellGame = ({cups}) => {
 
   
   return (
-    <div className={styles.container}>
+    <>
      <h1>The Games of Shells</h1>
- 
-
+     <h2>{msg}</h2>
      <button className={styles.playBtn}  onClick={playGame}>Play</button>
-
      {cupDisplay}
-
-     <ShellsFinder />
-    </div>
+    </>
   )
 }
 
@@ -115,3 +128,4 @@ ShellGame.defaultProps = {
 ShellGame.propTypes = {
     cups: PropTypes.array
 }
+
