@@ -131,12 +131,13 @@ const TheGameOfShells = ({}) => {
           onClick={playGame} >
           Play
         </button>    
-        <h2>
-        { (guess !== null )&& ((guess === answer) ? '....You won!.....' : '>>>>>Try again!<<<<<')}
-        </h2>
+        
         <div className={styles.screen}>
           {cupsDisplay}
         </div>
+        <h2>
+        { (guess !== null )&& ((guess === answer) ? '-----You won!-----' : '>>>>>Try again!<<<<<')}
+        </h2>
       </>
   )
 }
