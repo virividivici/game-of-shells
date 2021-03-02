@@ -7,9 +7,9 @@ const TheGameOfShells = ({}) => {
   const [guess, setGuess] = useState(null);
   const [postions, setPostions] = useState([
     [
-      { x: 140, hasShell: false },
-      { x: 280, hasShell: false },
-      { x: 420, hasShell: false },
+      { hasShell: false, x: 140 },
+      { hasShell: false, x: 280 },
+      { hasShell: false, x: 420 }
     ]
   ]);
   
@@ -140,7 +140,7 @@ const TheGameOfShells = ({}) => {
           Play
         </button>    
         <h2>
-         {msg()} - {guess} / {answer}
+         {msg()}
         </h2>
         <div className={styles.screen}>
           {cupsDisplay}
